@@ -80,6 +80,46 @@
 <code>Delay caused when a Lambda function is invoked after being idle — the runtime environment must initialize before execution.</code>
 </details>
 
+<details><summary>21. How does Lambda pricing model work?</summary>
+<code>Pay per request ($0.20/million) and compute duration ($0.00001667/GB-second). Free tier includes 1M requests and 400K GB-seconds monthly.</code>
+</details>
+
+<details><summary>22. What are Lambda Destinations?</summary>
+<code>Configurable targets for async invocation results. Route function outputs to SQS, SNS, Lambda, or EventBridge without custom DLQ handling code.</code>
+</details>
+
+<details><summary>23. How would you troubleshoot a Lambda timeout?</summary>
+<code>Check CloudWatch logs for incomplete execution, verify backend service latency, increase timeout setting, and use X-Ray for tracing.</code>
+</details>
+
+<details><summary>24. What's the difference between /tmp storage and ephemeral storage?</summary>
+<code>/tmp is legacy (512MB). Ephemeral storage (up to 10GB configurable) provides larger scratch space for filesystem operations.</code>
+</details>
+
+<details><summary>25. When would you choose container images over ZIP deployments?</summary>
+<code>For larger dependencies (>250MB), consistent local testing, or leveraging existing CI/CD pipelines for containers.</code>
+</details>
+
+<details><summary>26. How does Lambda integrate with X-Ray?</summary>
+<code>Enable active tracing in config. Lambda auto-sends segments to X-Ray for invocation metrics and downstream service tracing.</code>
+</details>
+
+<details><summary>27. What are Lambda Extensions?</summary>
+<code>Companion processes for monitoring/security tools. Run alongside function code in same execution environment (e.g., AppDynamics, Datadog).</code>
+</details>
+
+<details><summary>28. How do you manage secrets in Lambda?</summary>
+<code>Use encrypted env vars with KMS, Secrets Manager integration (via SDK), or IAM roles for services like Parameter Store.</code>
+</details>
+
+<details><summary>29. What happens during Lambda scaling?</summary>
+<code>Creates new execution environments for concurrent requests. Scales horizontally up to account concurrency limit (default 1000).</code>
+</details>
+
+<details><summary>30. How would you optimize Lambda memory usage?</summary>
+<code>Right-size memory allocation (affects CPU/networking), reuse connections/objects, minimize package size, and profile with CloudWatch.</code>
+</details>
+
 ---
 
 1. Lambda has 2 side permissions
