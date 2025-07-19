@@ -1,66 +1,86 @@
-### 1. What is AWS Lambda?
-AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. It automatically scales and manages the infrastructure required to run your code in response to events.
+### AWS Lambda
 
-### 2. How does AWS Lambda work?
-You can upload your code to Lambda and define event sources that trigger the execution of your code. Lambda automatically manages the execution environment, scales it as needed, and provides monitoring and logging.
+<details><summary>1. What is AWS Lambda?</summary>
+<code>AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. It scales automatically and executes in response to events.</code>
+</details>
 
-### 3. What are the key benefits of using AWS Lambda?
-The benefits of AWS Lambda include automatic scaling, reduced operational overhead, cost efficiency (as you pay only for the compute time used), and the ability to build event-driven architectures.
+<details><summary>2. How does AWS Lambda work?</summary>
+<code>You upload your code and configure event sources. Lambda manages the environment, scales execution, and provides monitoring via CloudWatch.</code>
+</details>
 
-### 4. What types of events can trigger AWS Lambda functions?
-AWS Lambda functions can be triggered by various event sources, such as changes in Amazon S3 objects, updates to Amazon DynamoDB tables, HTTP requests through Amazon API Gateway, and more.
+<details><summary>3. What are the key benefits of using AWS Lambda?</summary>
+<code>Auto-scaling, reduced ops overhead, cost-efficient (pay-per-use), ideal for event-driven architectures.</code>
+</details>
 
-### 5. How is concurrency managed in AWS Lambda?
-Lambda automatically handles concurrency by scaling out instances of your function in response to incoming requests. You can set a concurrency limit to control how many concurrent executions are allowed.
+<details><summary>4. What types of events can trigger Lambda?</summary>
+<code>Amazon S3 object changes, DynamoDB table updates, API Gateway requests, CloudWatch events, and custom triggers.</code>
+</details>
 
-### 6. What is the maximum execution duration for a single AWS Lambda invocation?
-The maximum execution duration for a single Lambda invocation is 15 minutes.
+<details><summary>5. How is concurrency managed in Lambda?</summary>
+<code>Lambda handles concurrency by scaling function instances. You can set reserved and maximum concurrency limits.</code>
+</details>
 
-### 7. How do you pass data to and from AWS Lambda functions?
-You can pass data to Lambda functions through event objects, which contain information about the triggering event. You can also return data by using the return statement or creating a response object.
+<details><summary>6. What’s the max execution duration?</summary>
+<code>15 minutes per invocation.</code>
+</details>
 
-### 8. Can AWS Lambda functions communicate with external resources?
-Yes, Lambda functions can communicate with external resources such as databases, APIs, and other AWS services by using appropriate SDKs and APIs provided by AWS.
+<details><summary>7. How do you pass data to/from Lambda?</summary>
+<code>Use event objects as input and return responses with output data, formatted as JSON.</code>
+</details>
 
-### 9. What are AWS Lambda layers?
-AWS Lambda layers are a way to manage and share code that is common across multiple functions. Layers can include libraries, custom runtimes, and other function dependencies.
+<details><summary>8. Can Lambda talk to external resources?</summary>
+<code>Yes. It can call APIs, connect to databases, and integrate with other services using SDKs and VPC configurations.</code>
+</details>
 
-### 10. How can you handle errors in AWS Lambda functions?
-You can handle errors by using try-catch blocks in your code. Lambda also provides CloudWatch Logs for monitoring, and you can set up error handling and retries for asynchronous invocations.
+<details><summary>9. What are Lambda layers?</summary>
+<code>Reusable packages for code, libraries, or runtimes shared across functions for modularization and cleaner deployment.</code>
+</details>
 
-### 11. Can AWS Lambda functions access the internet?
-Yes, Lambda functions can access the internet through the Virtual Private Cloud (VPC) or through public endpoints if your function is not configured within a VPC.
+<details><summary>10. How to handle errors in Lambda?</summary>
+<code>Use try-catch blocks in code. Monitor via CloudWatch Logs. Configure retry strategies for async invocations.</code>
+</details>
 
-### 12. What are the execution environments available for AWS Lambda functions?
-Lambda supports several runtimes, including Node.js, Python, Java, Go, Ruby, .NET Core, and custom runtimes using the Runtime API.
+<details><summary>11. Can Lambda access the internet?</summary>
+<code>Yes, either via public endpoints or by configuring the function inside a VPC with NAT access.</code>
+</details>
 
-### 13. How can you configure environment variables for AWS Lambda functions?
-You can set environment variables for Lambda functions when creating or updating the function. These variables can be accessed within your code.
+<details><summary>12. Supported Lambda execution environments?</summary>
+<code>Node.js, Python, Java, Go, Ruby, .NET Core, and custom runtimes via Runtime API.</code>
+</details>
 
-### 14. What is the difference between synchronous and asynchronous invocation of Lambda functions?
-Synchronous invocations wait for the function to complete and return a response, while asynchronous invocations return immediately, and the response is sent to a specified destination.
+<details><summary>13. Configuring environment variables?</summary>
+<code>Set variables when creating/updating the function via Console, CLI, or Infrastructure as Code templates.</code>
+</details>
 
-### 15. What is the AWS Lambda Event Source Mapping?
-Event Source Mapping allows you to connect event sources like Amazon DynamoDB streams or Amazon Kinesis streams to Lambda functions. This enables the function to process events as they occur.
+<details><summary>14. Synchronous vs. Asynchronous invocations?</summary>
+<code>Sync = wait for result; Async = immediate return with output sent to a destination like SQS or SNS.</code>
+</details>
 
-### 16. How can you manage the permissions and execution roles for AWS Lambda functions?
-You can use AWS Identity and Access Management (IAM) roles to grant permissions to your Lambda functions. Execution roles define what AWS resources the function can access.
+<details><summary>15. What is Event Source Mapping?</summary>
+<code>Binds event sources (e.g., Kinesis, DynamoDB streams) to a Lambda function for automatic invocation when new events arrive.</code>
+</details>
 
-### 17. What is AWS Step Functions?
-AWS Step Functions is a serverless orchestration service that lets you coordinate multiple AWS services into serverless workflows using visual workflows called state machines.
+<details><summary>16. Managing permissions for Lambda?</summary>
+<code>Attach IAM execution roles defining access to AWS resources. Lambda assumes the role at runtime.</code>
+</details>
 
-### 18. How can you automate the deployment of AWS Lambda functions?
-You can use AWS Serverless Application Model (SAM) templates, AWS CloudFormation, or CI/CD tools like AWS CodePipeline to automate the deployment of Lambda functions.
+<details><summary>17. What are AWS Step Functions?</summary>
+<code>A serverless orchestration tool to coordinate multi-step workflows using state machines across AWS services, including Lambda.</code>
+</details>
 
-### 19. Can AWS Lambda functions connect to on-premises resources?
-Yes, Lambda functions can connect to on-premises resources by placing the function inside a VPC and using a VPN or Direct Connect connection to establish connectivity.
+<details><summary>18. How to automate Lambda deployment?</summary>
+<code>Use AWS SAM, CloudFormation, CodePipeline, or third-party CI/CD tools for scripted deployments.</code>
+</details>
 
-### 20. What is the Cold Start issue in AWS Lambda?
-The Cold Start issue occurs when a Lambda function is invoked for the first time or after it has been idle for a while. The function needs to be initialized, causing a slight delay in response time.
+<details><summary>19. Can Lambda connect to on-prem resources?</summary>
+<code>Yes. Deploy within a VPC with VPN or AWS Direct Connect access to your on-prem network.</code>
+</details>
 
-·
+<details><summary>20. What is the Cold Start issue?</summary>
+<code>Delay caused when a Lambda function is invoked after being idle — the runtime environment must initialize before execution.</code>
+</details>
 
-
+---
 
 1. Lambda has 2 side permissions
 When we look at access permissions for Lambda, there are 2 sides to consider: Permission to trigger (or invoke) the function, and permissions of the Lambda function itself to take actions with other services. These permissions are handled through AWS IAM, primarily through a resource policy that controls which principles have permissions to invoke the function and an execution role that controls what the function is permitted to do. A principal may be a user, role, service, or account. However, in this course, we’ll focus on the use case of another AWS service triggering a Lambda function.
